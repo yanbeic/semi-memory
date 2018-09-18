@@ -2,16 +2,16 @@
 export CUDA_VISIBLE_DEVICES=0
 
 # supply your working directory here
-PATH_ROOT=
+PATH_ROOT=${PWD}/
 SEMI_SIGN=True
 
 
 for i in 1 
 do
 
-   TRAIN_DIR=${PATH_ROOT}model/semi/results/cifar10/semi_split$i
-   DATASET_DIR_L=${PATH_ROOT}model/semi/tfrecords/cifar10/train/split$i/labeled/
-   DATASET_DIR_U=${PATH_ROOT}model/semi/tfrecords/cifar10/train/split$i/unlabeled/
+   TRAIN_DIR=${PATH_ROOT}results/cifar10/semi_split$i
+   DATASET_DIR_L=${PATH_ROOT}tfrecords/cifar10/train/split$i/labeled/
+   DATASET_DIR_U=${PATH_ROOT}tfrecords/cifar10/train/split$i/unlabeled/
 
    python train.py \
           --train_dir=${TRAIN_DIR} \
@@ -28,9 +28,9 @@ do
           --num_gpus=1
 
 
-   CHECKPOINT=${PATH_ROOT}model/semi/results/cifar10/semi_split$i/
-   EVALUATE=${PATH_ROOT}model/semi/results/
-   DATASET_DIR=${PATH_ROOT}model/semi/tfrecords/cifar10/test/
+   CHECKPOINT=${PATH_ROOT}results/cifar10/semi_split$i/
+   EVALUATE=${PATH_ROOT}results/
+   DATASET_DIR=${PATH_ROOT}tfrecords/cifar10/test/
    SAVE_FILE=cifar10.txt
 
    python test.py \
