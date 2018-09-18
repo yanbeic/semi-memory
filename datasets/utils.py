@@ -2,10 +2,8 @@ from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
 
-import os
 import tensorflow as tf
 
-LABELS_FILENAME = 'labels.txt'
 
 def int64_feature(values):
     if not isinstance(values, (tuple, list)):
