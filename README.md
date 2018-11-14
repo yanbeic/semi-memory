@@ -7,7 +7,8 @@
 
 ### Prerequisite:
 
-Tensorflow version >= 1.4.0.
+- Python 2.7.
+- Tensorflow version >= 1.4.0.
 
 ### Data preparation:
 
