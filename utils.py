@@ -4,6 +4,8 @@ from __future__ import print_function
 
 import tensorflow as tf
 import tensorflow.contrib.slim as slim
+import numpy as np
+import math
 from datasets import dataset_factory
 from preprocessing import preprocessing_factory
 
@@ -103,5 +105,5 @@ def decay_lr(step, boundaries, values, max_steps):
     elif FLAGS.decay_lr_type == 'sine':
         decayed_lr = sin_decay_lr(step, boundaries, values, max_steps)
     else:
-        raise ValueError('decay_lr_type %s was not recognized.' % split_name)
+        raise ValueError('decay_lr_type %s was not recognized.')
     return decayed_lr
